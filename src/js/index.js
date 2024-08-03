@@ -23,6 +23,12 @@ function updateCounter() {
 const MainComponent = () => {
     return <>
     <Home seconds={counter}/>
+    
+    <label className="text-light">Starting value</label>
+    <input type="number" onChange={(event) => {
+        counter= event.target.value;
+        root.render(<MainComponent/>);
+    }} />
 
         <div className="p-2 d-flex gap-2">
 

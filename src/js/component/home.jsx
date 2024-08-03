@@ -4,8 +4,8 @@ import Card from "./Card.jsx";
 //create your first component
 const Home = ({seconds}) => {
     return (
-	<div className="container-fluid d-flex justify-content-center gap-2 bg-black">
-			<Card icono/>
+	<div className="container-fluid d-flex justify-content-center gap-2 bg-black items-center">
+			<Card number={<span className="fa-regular fa-clock"></span>}/>
 			<Card number = {Math.floor(seconds % 1000000 / 100000)}/>
 			<Card number = {Math.floor(seconds % 100000 / 10000)}/>
 			<Card number = {Math.floor(seconds % 10000 / 1000)}/>

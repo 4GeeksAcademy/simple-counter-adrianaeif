@@ -19,6 +19,17 @@ function updateCounter() {
     root.render(<MainComponent/>);
 }
 
+function reverseCounter() {
+    if(counter <= 0) {
+        clearInterval(intervalID);
+        intervalID = null;
+    }
+    else {
+        counter--
+    }
+    root.render(<MainComponent/>);
+}
+
 // botones de inicio / detener
 const MainComponent = () => {
     return <>
@@ -31,21 +42,12 @@ const MainComponent = () => {
     }} />
 
 
-<label className="text-light">Temporizador</label>
-    <input type="number" onChange={(event) => {
-        counter= event.target.value;
-        MainComponent--;
-        if(MainComponent == 0) {
-            clearInterval(intervalID)
-            root.render(<MainComponent/>);
-        }
-    }}/>
 
         <div className="p-2 d-flex gap-2">
 
-                <button onClick = {() =>{
+                {(intervalID == null) && <button onClick = {() =>{
                     intervalID = setInterval(updateCounter, 1000);
-                }} className="btn btn-success">Start</button>
+                }} className="btn btn-success">Start</button>}
 
                 <button onClick={() =>{
                     clearInterval(intervalID);
@@ -63,6 +65,11 @@ const MainComponent = () => {
                         root.render(<MainComponent/>);
                     }
                 }} className="btn btn-warning">Reset</button>
+
+
+                {(intervalID == null) &&<button onClick = {() =>{
+                    intervalID = setInterval(reverseCounter, 1000);
+                }} className="btn btn-success">Reverse</button>}
 
 
         </div>

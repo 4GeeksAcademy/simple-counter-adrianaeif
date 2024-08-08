@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card.jsx";
 
+
 //create your first component
 const Home = ({seconds}) => {
     return (
@@ -14,6 +15,7 @@ const Home = ({seconds}) => {
 			<Card number = {seconds % 10}/>
 	</div>
     );
-}
+};
+
 
 export default Home;
